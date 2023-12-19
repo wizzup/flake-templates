@@ -1,0 +1,33 @@
+name: hello-haskell
+version: 0.1.0.0
+github: wizzup/flake-templates
+license: PublicDomain
+
+extra-source-files:
+  - README.md
+
+ghc-options: -Wall
+language: GHC2021
+
+dependencies:
+  - base
+
+library:
+  source-dirs: src
+
+executables:
+  hello:
+    main: Main.hs
+    source-dirs:
+      - app
+    dependencies:
+      - hello-haskell
+
+tests:
+  spec:
+    main: Spec.hs
+    source-dirs:
+      - test
+    dependencies:
+      - hspec
+      - hello-haskell

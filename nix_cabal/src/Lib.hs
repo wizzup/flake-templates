@@ -1,4 +1,4 @@
 module Lib where
 
-func :: String
-func = "Hello"
+func :: String -> String
+func = (++) "Hello "

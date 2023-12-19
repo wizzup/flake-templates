@@ -1,6 +1,5 @@
-# flakes
-Nix flake templates collection
 # Nix flake templages
+Nix flake templates collection
 
 ## Avaliable templates
 

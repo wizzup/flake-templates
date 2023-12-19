@@ -1,12 +1,6 @@
 # hello
 
-A minimal Haskell 'hello world' project.
-
-created using cabal
-
-```
-$ cabal init --minimal --package-name=hello-cabal --non-interactive
-```
+A Haskell 'hello world' project.
 
 build and run using `nix build` and `nix run`
 

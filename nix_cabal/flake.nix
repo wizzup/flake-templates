@@ -10,17 +10,19 @@
   }: (let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
-    drv = pkgs.haskellPackages.callCabal2nix "hello-cabal" ./. {};
+    drv = pkgs.haskellPackages.callCabal2nix "hello" ./. {};
     hsPcks = with pkgs.haskellPackages; [
       cabal-install
-      ghcid
       haskell-language-server
-      implicit-hie
+      hpack
     ];
     dev = drv.env.overrideAttrs (attr: {
       buildInputs = attr.buildInputs
                  ++ hsPcks
                  ++ [pkgs.helix];
+    shellHook = ''
+        source ${pkgs.cabal-install}/share/bash-completion/completions/cabal 
+      '';
     });
   in
     {
